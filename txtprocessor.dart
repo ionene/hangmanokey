@@ -21,11 +21,13 @@ class TxtProcessor {
    */
   static bool isLetterInWord(String letter, String word) {
     int i = 0;
-    for(i=0;i<word.length;i++){
-        if((word[i] == letter) != false){
-          return true;
-        };
-      };
+    for (i = 0; i < word.length; i++) {
+      if ((word[i] == letter) != false) {
+        return true;
+      }
+      ;
+    }
+    ;
     return false; //@ionene
   }
 
@@ -38,7 +40,14 @@ class TxtProcessor {
    * devolverá "b u _ _ s e _ e"
    */
   static String guessedLetters(String keyword, List<String> letterTrialList) {
-    return "b u _ _ s e _ e"; // stub
+    String barraBaja = "_";
+    for (int i = 0; i < keyword.length; i++) {
+      if (letterTrialList.contains(keyword[i])) {
+        print(keyword[i]);
+      } else {
+        print(barraBaja);
+      }
+    }
   }
 
   /*

@@ -43,6 +43,15 @@ class Game {
    * en ese caso actualizar el estado
    * para que salga del game loop.
    */
+  void ganado() {
+    if (missedLetters == 0 && mistakeCounter < MAX_MISTAKES) {
+      gameStatus = Status.won;
+      update_game();
+    } else {
+      clean_up();
+    }
+  }
+
   void update_game() {
     if (!TxtProcessor.isNewLetterInList(inputLetter, letterTrialList)) return;
     letterTrialList.add(inputLetter);
