@@ -9,6 +9,9 @@ class Dictionary {
    * La palabra devuelta debe ser aleatoria.
    */
   String makeRandomWord() {
-    return "bullseye"; // stub
+     List<String> aleatorio = ["desesperado", "imposible", "desorientado", "enrevesado", "incoherente", "insatisfecho", "estresado", "contraseña", "agujero", "tunel", "espacio", "oscuro", "insaciable", "frío"];
+    aleatorio.shuffle();
+
+    return aleatorio[0]; // @ionene
   }
 }
