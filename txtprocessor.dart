@@ -19,7 +19,7 @@ class TxtProcessor {
     //[A-Z] 65-90 mientras el intervalo de "Z" a "a" hay que cubrirlo tambien son de  [Z-a] 90-97
     //los valores de por encima de 122 ya no son letras del intervalo seleccionado.
 
-    // Se podia usar el (((letter.compareTo("a") > 0) || .... en if  siguiente y trabajar con el String dado sin parsearlo.
+    // Se podia usar el (((letter.compareTo("a") > 0) || .... en if  un if siguiente y trabajar con el String dado sin parsearlo.
     //  int letra = letter.codeUnitAt(0);
     //  if ((letra < 65) || (letra > 122) || ((letra > 90) && (letra < 97))) {
     //     return false;
@@ -28,6 +28,8 @@ class TxtProcessor {
     if (Input.isAletter(letter) == false) {
       return false;
     }
+
+    //Sino esta en la lista de intentos le daremos falso
     if (letterTrialList.indexOf(letter) == -1) {
       return false;
     }
