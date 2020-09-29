@@ -1,3 +1,5 @@
+import '../Hangman/input.dart';
+
 class TxtProcessor {
   static String initGuessed(String keyword) {
     var guessedLetters = "";
@@ -13,6 +15,24 @@ class TxtProcessor {
    * No es sensitivo a mayúsculas y minúsculas, la 'a' y la 'A' son igual.
    */
   static bool isNewLetterInList(String letter, List<String> letterTrialList) {
+    // obtendremos el valor de la tabla ASCII y de [a-z] comprenden los valores:
+    //[A-Z] 65-90 mientras el intervalo de "Z" a "a" hay que cubrirlo tambien son de  [Z-a] 90-97
+    //los valores de por encima de 122 ya no son letras del intervalo seleccionado.
+
+    // Se podia usar el (((letter.compareTo("a") > 0) || .... en if  un if siguiente y trabajar con el String dado sin parsearlo.
+    //  int letra = letter.codeUnitAt(0);
+    //  if ((letra < 65) || (letra > 122) || ((letra > 90) && (letra < 97))) {
+    //     return false;
+    //}
+    //  if(Input.isAletter()){} evitá la duplicacion de codigo
+    if (Input.isAletter(letter) == false) {
+      return false;
+    }
+
+    //Sino esta en la lista de intentos le daremos falso
+    if (letterTrialList.indexOf(letter) == -1) {
+      return false;
+    }
     return true; // stub
   }
 
