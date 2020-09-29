@@ -13,6 +13,22 @@ class TxtProcessor {
    * No es sensitivo a mayúsculas y minúsculas, la 'a' y la 'A' son igual.
    */
   static bool isNewLetterInList(String letter, List<String> letterTrialList) {
+    int letra = letter.codeUnitAt(0);
+    // obtendremos el valor de la tabla ASCII y de [a-z] comprenden los valores:
+    //[A-Z] 65-90 mientras el intervalo de "Z" a "a" hay que cubrirlo tambien son de  [Z-a] 90-97
+    //los valores de por encima de 122 ya no son letras del intervalo seleccionado.
+
+    // Se podia usar el (((letter.compareTo("a") > 0) || .... en if  siguiente y trabajar con el String dado sin parsearlo.
+
+    if ((letra < 65) || (letra > 122) || ((letra > 90) && (letra < 97))) {
+      return false;
+    }
+
+    if (letterTrialList.indexOf(letter) == -1) {
+      return false;
+    }
+
+    return true;
     return true; // stub
   }
 
@@ -21,11 +37,13 @@ class TxtProcessor {
    */
   static bool isLetterInWord(String letter, String word) {
     int i = 0;
-    for(i=0;i<word.length;i++){
-        if((word[i] == letter) != false){
-          return true;
-        };
-      };
+    for (i = 0; i < word.length; i++) {
+      if ((word[i] == letter) != false) {
+        return true;
+      }
+      ;
+    }
+    ;
     return false; //@ionene
   }
 
