@@ -15,18 +15,14 @@ class Renderer {
    */
   void drawGame(int mistakes, String missed, String guessed) {
     print("Te quedan ${max_mistakes - mistakes} fallos.");
-    print('''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-========='''); //stub
+    print(Gallows.level[i]);
+    i++;
     print(guessed);
     print("Fallado: $missed");
+    if(i == 10) {
+      drawFailure()
   }
-
+  
   void drawSuccess() {
     print("HAS GANADO!");
   }

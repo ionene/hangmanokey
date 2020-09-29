@@ -77,10 +77,11 @@ class TxtProcessor {
    * devolverá "a i t"
    */
   static String missedLetters(String keyword, List<String> letterTrialList) {
-    var missedLetters = "";
-    // stub (está mal, incorpora todas las letras, era para ver cambios)
-    for (int i = 0; i < letterTrialList.length; i++) {
-      missedLetters = "$missedLetters ${letterTrialList[i]}";
+      var missedLetters = "";
+    for (int i = 0; i < keyword.length; i++) {
+      if (!letterTrialList.contains(keyword[i]){
+        missedLetters += letterTrialList[i] + "";
+      }
     }
     return missedLetters;
   }
